@@ -1,4 +1,13 @@
 <article class="content">
-  <h1>Question</h1>
-  <p>With some description text</p>
+  <h1>{{ this.selected.category }}</h1>
+  <p>{{ this.selected.question }}</p>
+  <!-- @for{ question of this.questions[0].answers }
+    <button>{{ question }}</button> -->
+  <!-- <p>{{ this.questions[0] | json }}</p> -->
+  <div class="answers">
+    @for(answer of selected.answers; track answer){
+    <button>{{ answer }}</button>
+    }
+  </div>
+  <button (click)="this.nextQuestion()">Next</button>
 </article>
